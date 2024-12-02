@@ -1,1 +1,1 @@
-import './day-1/script';
+import "./day.1";
