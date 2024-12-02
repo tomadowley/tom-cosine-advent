@@ -23,15 +23,10 @@ jobs:
         with:
           node-version: "22"
 
-      # Step 3: Install dependencies
-      - name: Install Dependencies
-        run: |
-          npm install
-
       # Step 4: Compile TypeScript
       - name: Compile TypeScript
         run: |
-          npx tsc src/main.ts
+          tsc src/main.ts
 
       # Step 5: Run Node.js Script
       - name: Run Node.js Script
