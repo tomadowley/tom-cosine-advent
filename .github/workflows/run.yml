@@ -31,4 +31,5 @@ jobs:
       # Step 5: Run Node.js Script
       - name: Run Node.js Script
         run: |
-          echo node src/main.js
+          OUTPUT=$(node src/main.js)
+          echo "$OUTPUT"
