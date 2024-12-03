@@ -1,5 +1,7 @@
-const fs = require("fs");
-const path = require("path");
+/// <reference types="node" />
+
+import fs from "fs";
+import path from "path";
 
 const filePath = path.resolve(__dirname, "../data/day.3.py");
 const fileContent = fs.readFileSync(filePath, "utf8");
