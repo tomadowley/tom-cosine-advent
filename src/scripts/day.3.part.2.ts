@@ -57,4 +57,4 @@ while (mulIndex < mulMatches.length) {
   mulIndex++;
 }
 
-console.log("day 3 part 2 result: ", result);
+console.log("day 3 part 2 output: ", result);

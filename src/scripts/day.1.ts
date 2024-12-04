@@ -19,4 +19,4 @@ for (let i = 0; i < leftList.length; i++) {
   totalDistance += Math.abs(leftList[i] - rightList[i]);
 }
 
-console.log(`Total Distance: ${totalDistance}`);
+console.log(`day 1 output: ${totalDistance}`);
