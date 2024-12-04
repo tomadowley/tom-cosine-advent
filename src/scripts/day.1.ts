@@ -1,4 +1,4 @@
-import { data } from "../data/day.1-2";
+import { data } from "../data/day.1";
 
 const leftList: number[] = [];
 const rightList: number[] = [];
