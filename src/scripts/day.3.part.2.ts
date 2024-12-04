@@ -15,46 +15,46 @@ const mulRegex = /mul\((\d+),(\d+)\)/g;
 const doRegex = /do\(\)/g;
 const dontRegex = /don't\(\)/g;
 
-  let isMulEnabled = true;
-  let result = 0;
+let isMulEnabled = true;
+let result = 0;
 
-  const mulMatches = [...input.matchAll(mulRegex)];
-  const doMatches = [...input.matchAll(doRegex)];
-  const dontMatches = [...input.matchAll(dontRegex)];
+const mulMatches = [...input.matchAll(mulRegex)];
+const doMatches = [...input.matchAll(doRegex)];
+const dontMatches = [...input.matchAll(dontRegex)];
 
-  let mulIndex = 0;
-  let doIndex = 0;
-  let dontIndex = 0;
+let mulIndex = 0;
+let doIndex = 0;
+let dontIndex = 0;
 
-  while (mulIndex < mulMatches.length) {
-    const mulMatch = mulMatches[mulIndex];
-    const mulPosition = mulMatch.index!;
+while (mulIndex < mulMatches.length) {
+  const mulMatch = mulMatches[mulIndex];
+  const mulPosition = mulMatch.index!;
 
-    // Check for do() or don't() before the current mul()
-    while (
-      (doIndex < doMatches.length && doMatches[doIndex].index! < mulPosition) ||
-      (dontIndex < dontMatches.length &&
-        dontMatches[dontIndex].index! < mulPosition)
+  // Check for do() or don't() before the current mul()
+  while (
+    (doIndex < doMatches.length && doMatches[doIndex].index! < mulPosition) ||
+    (dontIndex < dontMatches.length &&
+      dontMatches[dontIndex].index! < mulPosition)
+  ) {
+    if (
+      dontIndex < dontMatches.length &&
+      (doIndex >= doMatches.length ||
+        dontMatches[dontIndex].index! < doMatches[doIndex].index!)
     ) {
-      if (
-        dontIndex < dontMatches.length &&
-        (doIndex >= doMatches.length ||
-          dontMatches[dontIndex].index! < doMatches[doIndex].index!)
-      ) {
-        isMulEnabled = false;
-        dontIndex++;
-      } else {
-        isMulEnabled = true;
-        doIndex++;
-      }
+      isMulEnabled = false;
+      dontIndex++;
+    } else {
+      isMulEnabled = true;
+      doIndex++;
     }
-
-    if (isMulEnabled) {
-      const [, a, b] = mulMatch.map(Number);
-      result += a * b;
-    }
-
-    mulIndex++;
   }
 
-console.log(result);
+  if (isMulEnabled) {
+    const [, a, b] = mulMatch.map(Number);
+    result += a * b;
+  }
+
+  mulIndex++;
+}
+
+console.log("day 3 part 2 result: ", result);
