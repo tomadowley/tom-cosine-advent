@@ -36,21 +36,21 @@ for (let i = 0; i < grid.length; i++) {
       // Check down-right diagonal 
       if (
         isInBounds(i + 3, j + 3) &&
-        searchMASFrom(i + 1, j + 1, 1, 1) &&
-        searchMASFrom(i + 3, j + 1, -1, 1)
+        searchMASFrom(i + 1, j + 1, 1, 1)
       ) {
         totalCount++;
       }
       // Check down-left diagonal
       if (
         isInBounds(i + 3, j - 3) &&
-        searchMASFrom(i + 1, j - 1, 1, -1) &&
-        searchMASFrom(i + 3, j - 1, -1, -1)
+        searchMASFrom(i + 1, j - 1, 1, -1)
       ) {
         totalCount++;
       }
     }
   }
 }
+
+console.log(`day 4 part
 
 console.log(`day 4 part 2 output: ${totalCount}`);
