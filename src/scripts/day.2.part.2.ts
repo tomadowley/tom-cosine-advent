@@ -30,7 +30,12 @@ function canBeMadeSafeByRemovingOneLevel(report: number[]): boolean {
   return false;
 }
 
-const reports = data.trim().split("\n").map(line => line.trim().split(" ").map(Number));
-const safeReports = reports.filter(report => isSafeReport(report) || canBeMadeSafeByRemovingOneLevel(report));
+const reports = data
+  .trim()
+  .split("\n")
+  .map((line) => line.trim().split(" ").map(Number));
+const safeReports = reports.filter(
+  (report) => isSafeReport(report) || canBeMadeSafeByRemovingOneLevel(report)
+);
 
-console.log(`Number of safe reports: ${safeReports.length}`);
+console.log(`day 2 part 2 output: ${safeReports.length}`);

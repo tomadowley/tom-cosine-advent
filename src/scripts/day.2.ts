@@ -20,7 +20,10 @@ function isSafeReport(report: number[]): boolean {
   return !(increasing && decreasing);
 }
 
-const reports = data.trim().split("\n").map(line => line.trim().split(" ").map(Number));
+const reports = data
+  .trim()
+  .split("\n")
+  .map((line) => line.trim().split(" ").map(Number));
 const safeReports = reports.filter(isSafeReport);
 
-console.log(`Number of safe reports: ${safeReports.length}`);
+console.log(`day 2 output: ${safeReports.length}`);

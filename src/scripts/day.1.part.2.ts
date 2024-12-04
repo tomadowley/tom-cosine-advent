@@ -27,4 +27,4 @@ for (const num of leftList) {
   }
 }
 
-console.log(`Similarity Score: ${similarityScore}`);
+console.log(`day 1 part 2 output: ${similarityScore}`);

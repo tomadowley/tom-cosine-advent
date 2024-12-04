@@ -24,4 +24,4 @@ while ((match = mulRegex.exec(data)) !== null) {
   sum += x * y;
 }
 
-console.log(`Sum of all mul results: ${sum}`);
+console.log(`day 3 output: ${sum}`);
