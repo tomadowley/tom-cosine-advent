@@ -33,12 +33,20 @@ let totalCount = 0;
 for (let i = 0; i < grid.length; i++) {
   for (let j = 0; j < grid[i].length; j++) {
     if (grid[i][j] === "M") {
-      // Check down-right diagonal
-      if (searchMASFrom(i + 1, j + 1, 1, 1) && searchMASFrom(i + 3, j + 1, -1, 1)) {
+      // Check down-right diagonal 
+      if (
+        isInBounds(i + 3, j + 3) &&
+        searchMASFrom(i + 1, j + 1, 1, 1) &&
+        searchMASFrom(i + 3, j + 1, -1, 1)
+      ) {
         totalCount++;
       }
       // Check down-left diagonal
-      if (searchMASFrom(i + 1, j - 1, 1, -1) && searchMASFrom(i + 3, j - 1, -1, -1)) {
+      if (
+        isInBounds(i + 3, j - 3) &&
+        searchMASFrom(i + 1, j - 1, 1, -1) &&
+        searchMASFrom(i + 3, j - 1, -1, -1)
+      ) {
         totalCount++;
       }
     }
