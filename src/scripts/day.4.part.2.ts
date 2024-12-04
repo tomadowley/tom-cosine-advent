@@ -10,14 +10,21 @@ function isInBounds(x: number, y: number): boolean {
 // Function to search for the word "MAS" in a specific direction from a given starting point
 function searchMASFrom(x: number, y: number, dx: number, dy: number): boolean {
   const word = "MAS";
+  const backwardWord = "SAM";
+  let foundForward = true;
+  let foundBackward = true;
+
   for (let i = 0; i < word.length; i++) {
     const nx = x + dx * i;
     const ny = y + dy * i;
     if (!isInBounds(nx, ny) || grid[nx][ny] !== word[i]) {
-      return false;
+      foundForward = false;
+    }
+    if (!isInBounds(nx, ny) || grid[nx][ny] !== backwardWord[i]) {
+      foundBackward = false;
     }
   }
-  return true;
+  return foundForward || foundBackward;
 }
 
 let totalCount = 0;
