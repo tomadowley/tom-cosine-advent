@@ -58,4 +58,3 @@ const dontRegex = /don't\(\)/g;
   }
 
 console.log(result);
-}
