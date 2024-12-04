@@ -1,7 +1,19 @@
-export function day3Part2(input: string): number {
-  const mulRegex = /mul\((\d+),(\d+)\)/g;
-  const doRegex = /do\(\)/g;
-  const dontRegex = /don't\(\)/g;
+import * as fs from "fs";
+import * as path from "path";
+
+const filePath = path.resolve(__dirname, "../data/day.3.py");
+const fileContent = fs.readFileSync(filePath, "utf8");
+
+// Extract the data string from the Python file content
+const dataMatch = fileContent.match(/data\s*=\s*"""\s*([^]*?)\s*"""/);
+if (!dataMatch) {
+  throw new Error("Failed to extract data from day.3.py");
+}
+const input = dataMatch[1];
+
+const mulRegex = /mul\((\d+),(\d+)\)/g;
+const doRegex = /do\(\)/g;
+const dontRegex = /don't\(\)/g;
 
   let isMulEnabled = true;
   let result = 0;
@@ -45,5 +57,5 @@ export function day3Part2(input: string): number {
     mulIndex++;
   }
 
-  return result;
+console.log(result);
 }
