@@ -1,3 +1,27 @@
+import { data } from "../data/day.3";
+
+function countXMASOccurrences(line: string): number {
+  let count = 0;
+  for (let i = 0; i < line.length - 2; i++) {
+    const segment = line.slice(i, i + 3);
+    if (
+      (segment[0] === "M" && segment[1] === "A" && segment[2] === "S") ||
+      (segment[0] === "S" && segment[1] === "A" && segment[2] === "M")
+    ) {
+      count++;
+    }
+  }
+  return count;
+}
+
+const lines = data.trim().split("\n");
+let totalXMASCount = 0;
+
+for (const line of lines) {
+  totalXMASCount += countXMASOccurrences(line);
+}
+
+console.log(`day 3 part 2 output: ${totalXMASCount}`);
 import * as fs from "fs";
 import * as path from "path";
 
